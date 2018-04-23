@@ -48,4 +48,6 @@ body {
 }
 
 /* ---- components ---- */
-
+#map{
+  height: 60vh;
+}

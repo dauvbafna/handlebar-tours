@@ -2,6 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
+const Tour = require('../models/tour');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -10,7 +11,7 @@ router.get('/', (req, res, next) => {
 
 /* GET tour details page */
 router.get('/tours/:tourId', (req, res, next) => {
-  Tour.findOne({ _id: req.params.tourId })
+  Tour.findOne({_id: req.params.tourId})
     .then((result) => {
       const data = {
         tour: result
