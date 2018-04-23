@@ -6,17 +6,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"></head>
 
 <body class= 'container'>
   <nav id = 'nav'>
-    <a href="/"><img src="/images/logo.png" alt='handlebars-tours logo'></a>
+    <div>
+      <a href="/"><img src="/images/logo.png" alt='handlebars-tours logo'></a>
+    </div>
+    {{!-- Currently tracking users in session correctly -- fix! --}}
     {{#if user.email}}
     <div>
     <a href="#">see all tours</a>
     <a href="/profile">profile</a>
     <form method="POST" action="/auth/logout">
-      <button id = 'logout-btn'>logout</button>
+      <a href="/">logout</a>
     </form>
     </div>
     {{else}}
