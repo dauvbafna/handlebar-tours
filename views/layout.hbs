@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body class= 'container'>
+  <nav id = 'nav'>
+    <a href="/"><img src="/images/logo.png" alt='handlebars-tours logo'></a>
+    {{#if user.email}}
+    <div>
+    <a href="#">see all tours</a>
+    <a href="/profile">profile</a>
+    <form method="POST" action="/auth/logout">
+      <button id = 'logout-btn'>logout</button>
+    </form>
+    </div>
+    {{else}}
+    <div>
+    <a href="#">see all tours</a>
+    <a href="/auth/signup">sign up</a>
+    <a href="/auth/login">login</a>
+    </div>
+    {{/if}}
+  </nav>
+
+  {{{body}}}
+
+  <footer id = 'footer'>
+    &copy; Made by Lennie Zhu and Dauv Bafna (Ironhack BCN 2018)
+  </footer>
+
+</body>
+
+</html>

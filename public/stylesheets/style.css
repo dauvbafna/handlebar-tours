@@ -1,0 +1,51 @@
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ---- typography ---- */
+
+/* ---- layout ---- */
+
+.container {
+  margin: 0px;
+  padding: 0px;
+}
+
+#nav {
+  background-color: white;
+  border-bottom: 0.5px solid gray;
+  display: flex;
+  /* flex-direction: row; */
+}
+
+#nav img {
+  width: 60%;
+}
+
+/* Why isnt this working?  */
+/* #logout-btn {
+  display: inline;
+} */
+
+.tour-card {
+  width: 30%;
+}
+
+#footer {
+  margin: 40px 0 0 0;
+  background-color: lightgray;
+}
+
+/* ---- components ---- */
+

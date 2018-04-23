@@ -1,0 +1,24 @@
+<h1>buckle in, rider</h1>
+
+<form method="POST" action="/auth/signup">
+
+  <div class="field">
+    <input type="text" name="firstname" placeholder="first name" />
+  </div>
+
+  <div class="field">
+    <input type="text" name="email" placeholder="email" />
+  </div>
+
+  <div class="field">
+    <input type="text" name="password" placeholder="password" />
+  </div>
+
+  {{#each errorMessage}}
+  <div class="error-message">{{ this }}</div>
+  {{/each}}
+
+  <div class="field submit">
+    <button type="submit">sign up</button>
+  </div>
+</form>
