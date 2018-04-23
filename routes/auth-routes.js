@@ -2,20 +2,12 @@
 
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 // BCrypt to encrypt passwords
 const bcrypt = require('bcrypt');
 const bcryptSalt = 10; // This number can be changed - unclear its meaning
 
 // Connect schema
 const User = require('../models/user');
-
-// Mongoose configuration
-mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/moto-tours', {
-  keepAlive: true,
-  reconnectTries: Number.MAX_VALUE
-});
 
 // Routes
 router.get('/signup', (req, res, next) => {
@@ -87,10 +79,10 @@ router.post('/login', (req, res, next) => { // In this post & gets, you dont nee
   User.findOne({ email: email })
     .then(result => {
       if (!result) {
-        req.flash('login-error', 'There is no user with that username. Try again.');
+        req.flash('login-error', 'Either the email or password you entered is not correct. Try again.');
         res.redirect('/auth/login');
       } else if (!bcrypt.compareSync(password, result.password)) {
-        req.flash('login-error', 'That password does not match our records for this username. Try again.');
+        req.flash('login-error', 'Either the email or password you entered is not correct. Try again.');
         res.redirect('/auth/login');
       } else {
         req.session.user = result;

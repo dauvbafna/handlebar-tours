@@ -1,20 +1,27 @@
 'use strict';
 
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 
 // Route 'requires'
-var indexRouter = require('./routes/index');
-var authRouter = require('./routes/auth-routes');
+const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth-routes');
 
 // configure the app
-var app = express();
+const app = express();
+
+// Mongoose configuration
+mongoose.Promise = Promise;
+mongoose.connect('mongodb://localhost/moto-tours', {
+  keepAlive: true,
+  reconnectTries: Number.MAX_VALUE
+});
 
 // view engine setup
 app.set('view engine', 'hbs');
