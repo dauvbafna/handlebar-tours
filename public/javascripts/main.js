@@ -1,51 +1,53 @@
 'use strict';
 
-function main () {
+function tourDetails (tourId) {
   // -- utility functions
 
-  // function addMarker (map, location, title) {
-  //   const markerOptions = {
-  //     position: location,
-  //     title: title
-  //   };
-  //   const marker = new google.maps.Map(markerOptions);
-  //   marker.setMap(map);
-  //   return marker;
-  // }
-
-// -- build the map
+  // -- build the map
 
   const container = document.getElementById('map');
   const ironhackBCN = {
-    lat: 41.3977381,
-    lng: 2.190471916
+    lat: 27.7090319,
+    lng: 85.2911132
   };
   const options = {
-    zoom: 15,
+    zoom: 7,
     center: ironhackBCN
   };
   const map = new google.maps.Map(container, options);
 
-  const marker = new google.maps.Marker({
-    position: ironhackBCN
-  });
-
   // To add the marker to the map, call setMap();
-  marker.setMap(map);
 
-  //   axios.get('/spots/json')
-  //     .then(response => {
-  //       response.data.forEach((spot) => {
-  //         // addMarker(map, {spot.lat: 41.4001150, spot.lng: 2.210870}, spot.name);
-  //         console.log(spot);
-  //       });
-  //     });
-  //   getUserLocation()
-  //     .then((userLocation) => {
-  //       if (userLocation) {
-  //         addMarker(map, userLocation, 'your location');
-  //       }
-  //     });
-  // }
+  axios.get(`/api/${tourId}`)
+    .then(response => {
+      var stopPosition;
+      var markers = [];
+      var routeLines = [];
+      for (var i = 0; i < 7; i++) {
+        stopPosition = response.data.tour.routes[i].coordinates;
+        markers.push(new google.maps.Marker({
+          position: new google.maps.LatLng(stopPosition[0], stopPosition[1]),
+          map: map,
+          animation: google.maps.Animation.DROP
+        })
+        );
+      }
+
+      for (var j = 0; j < markers.length - 1; j++) {
+        routeLines.push(new google.maps.Polyline({
+          path: [
+            new google.maps.LatLng(markers[j].position.lat(), markers[j].position.lng()),
+            new google.maps.LatLng(markers[j + 1].position.lat(), markers[j + 1].position.lng())
+          ],
+          strokeColor: '#FF0000',
+          strokeOpacity: 1,
+          strokeWeight: 7,
+          map: map
+        }));
+      }
+      console.log(markers);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
-window.addEventListener('load', main);
