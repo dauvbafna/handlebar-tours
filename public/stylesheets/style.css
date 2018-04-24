@@ -44,6 +44,26 @@ h2 {
   color: white;
 }
 
+ #nav-btn {
+   text-decoration: none;
+   font-size: 16px;
+   color: black;
+   margin: 0 20px 0 0;
+   font-weight: lighter;
+ }
+
+ #signup-content {
+  color: white;
+ }
+
+#login-content {
+  color: white;
+}
+
+input {
+  font-size: 16px;
+}
+
 /* ---- layout ---- */
 
 .container {
@@ -51,11 +71,35 @@ h2 {
   padding: 0px;
 }
 
+#header-content {
+  height: 80vh;
+  background-image: url('../images/home-header.png');
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  align-items: center;
+}
+
+#header-content div {
+  width: 100%;
+  padding-left: 0;
+  text-align: center;
+}
+
+#hp-tour-content {
+  padding: 5vh 0 0 0;
+}
+
+#profile-content {
+  padding: 10vh;
+}
+
 
 /* ---- components ---- */
   
 #nav {
   position: fixed;
+  z-index: 1;
   top: 0;
   width: 100%;
   display: flex;
@@ -74,32 +118,13 @@ h2 {
   display: inline-block;
 }
 
-#header-content {
-  height: 80vh;
-  background-image: url('../images/home-header.png');
-  background-size: cover;
-  background-position: top;
-  display: flex;
-  align-items: center;
-}
-
-#header-content div {
-  width: 100%;
-  padding-left: 0;
-  text-align: center;
-}
-
-#tour-content {
-  padding: 5vh 0 0 0;
-  height: 70vh;
-}
 
 #tour-break-line {
   width: 70%;
   margin-top: 20px;
 }
 
-#tour-content > div {
+#hp-tour-content > div {
   text-align: center;
 }
 
@@ -108,8 +133,41 @@ h2 {
 }
 
 .tour-card {
-  width: 100%;
   margin: 30px;
+}
+
+#tour-details-container {
+  padding: 8vh 2vh 0 2vh;
+}
+
+#signup-content {
+  height: 80vh;
+  background-image: url('../images/home-header.png');
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10vw;
+}
+
+input {
+  width: 20%;
+  min-width: 300px;
+  margin: 10px 0;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+#login-content {
+  height: 80vh;
+  background-image: url('../images/home-header.png');
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10vw;
 }
 
 @media (min-width: 1025px) {
@@ -119,7 +177,7 @@ h2 {
     text-align: left;
   }
   
-  #tour-content {
+  #hp-tour-content {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -132,10 +190,15 @@ h2 {
 }
   
   #footer {
-    margin: 40px 0 0 0;
-    padding: 20px 0 0 20px;
     background-color: lightgray;
     height: 20vh;
+    display: flex;
+  }
+  
+  #footer p {
+    align-self: flex-end;
+    text-align: center;
+    width: 100%;
   }
 
   #map{
@@ -147,4 +210,24 @@ button {
   background-color: #3F84E3;
   border-radius: 8px;
   border-style: none;
+}
+
+#nav-btn {
+  padding: 0;
+  background-color: white;
+  border-radius: 0px;
+  border-style: none;
+}
+
+.submit {
+  margin-top: 20px;
+}
+
+#profile-content img {
+  width: 30%;
+}
+
+.error-img {
+  width: 30%;
+  margin: 10vh 10vh;
 }

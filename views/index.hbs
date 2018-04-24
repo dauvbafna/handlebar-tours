@@ -5,26 +5,28 @@
 </div>
 </section>
 
-<section id = 'tour-content'>
+<section id = 'hp-tour-content'>
 
 <div>
   <h1>We currently offer two tours</h1>
   <img id= "tour-break-line" src="../images/line.png">
   <div id= "tour-card-wrapper">
     <div class ='tour-card'>
-      <h2>Tour 1 Name</h2>
+      <h2>{{tour.0.name}}</h2>
       <img src='#'>
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
-      from 45 BC.</p>
-      <button>see details</button>
+      <p>{{tour.0.description}}</p>
+      <form method="GET" action="/tours/{{tour.0._id}}">
+        <button>see details</button>
+      </form>
     
     </div>
       <div class ='tour-card'>
-      <h2>Tour 2 Name</h2>
+      <h2>{{tour.1.name}}</h2>
       <img src='#'>
-      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
-      from 45 BC.</p>
-      <button>see details</button>
+      <p>{{tour.1.description}}</p>
+      <form method="GET" action="/tours/{{tour.1._id}}">
+        <button>see details</button>
+      </form>
     </div>
   </div>
 </div>

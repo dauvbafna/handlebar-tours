@@ -13,18 +13,19 @@
     <div>
       <a href="/"><img src="/images/logo.png" alt='handlebars-tours logo'></a>
     </div>
-    {{!-- Currently tracking users in session correctly -- fix! --}}
     {{#if user.email}}
     <div>
-    <a href="#">see all tours</a>
-    <a href="/profile">profile</a>
+    <a href="/">see all tours</a>
+    <form method="GET" action="/profile/{{user._id}}">
+      <button id="nav-btn">profile</button>
+    </form>
     <form method="POST" action="/auth/logout">
-      <a href="/">logout</a>
+      <button id = "nav-btn">logout</button>
     </form>
     </div>
     {{else}}
     <div>
-    <a href="#">see all tours</a>
+    <a href="/">see all tours</a>
     <a href="/auth/signup">sign up</a>
     <a href="/auth/login">login</a>
     </div>
@@ -34,7 +35,7 @@
   {{{body}}}
 
   <footer id = 'footer'>
-    &copy; Made by Lennie Zhu and Dauv Bafna (Ironhack BCN 2018)
+    <p>Made by Lennie Zhu and Dauv Bafna (Ironhack BCN 2018)</p>
   </footer>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSqhCPvGdIep-riFlAlKyWojxgh3T-BwM"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>

@@ -1,20 +1,22 @@
-<h1>let's go</h1>
+<section id="login-content">
+  <h1>let's go</h1>
 
-<form method="POST" action="/auth/login">
+  <form method="POST" action="/auth/login">
 
-  <div class="field">
-    <input type="email" name="email" placeholder="email" />
-  </div>
+    <div class="field">
+      <input type="email" name="email" placeholder="email" />
+    </div>
 
-  <div class="field">
-    <input type="password" name="password" placeholder="password" />
-  </div>
+    <div class="field">
+      <input type="password" name="password" placeholder="password" />
+    </div>
 
-  {{#each errorMessage}}
-  <div class="error-message">{{ this }}</div>
-  {{/each}}
+    {{#each errorMessage}}
+    <div class="error-message">{{ this }}</div>
+    {{/each}}
 
-  <div class="field submit">
-    <button type="submit">login</button>
-  </div>
-</form>
+    <div class="field submit">
+      <button type="submit">login</button>
+    </div>
+  </form>
+</section>
