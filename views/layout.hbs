@@ -40,6 +40,11 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSqhCPvGdIep-riFlAlKyWojxgh3T-BwM"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="/javascripts/main.js"></script>
+  {{#if javascript}}
+  <script>
+    {{{javascript}}}
+  </script>
+  {{/if}}
 </body>
 
 </html>
