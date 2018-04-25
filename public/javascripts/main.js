@@ -49,3 +49,16 @@ function tourDetails (tourId) {
       console.log(error);
     });
 }
+
+// Animations
+
+// smooth scroll from index - "book tour" button to tours overview div
+const smoothScroll = () => {
+  $('#book-tour-btn').click(() => {
+    $('html, body').animate({
+      scrollTop: $('#hp-tour-content').offset().top
+    }, 800);
+  });
+};
+
+window.addEventListener('load', smoothScroll());

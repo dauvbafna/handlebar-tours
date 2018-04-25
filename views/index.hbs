@@ -1,7 +1,7 @@
 <section id = 'header-content'>
 <div>
   <h1>Grab onto our Handlebars and get ready for the ride of your life.</h1>
-  <button>Book a tour</button>
+  <button id="book-tour-btn">Book a tour</button>
 </div>
 </section>
 
@@ -13,22 +13,23 @@
   <div id= "tour-card-wrapper">
     <div class ='tour-card'>
       <h2>{{tour.0.name}}</h2>
-      <img src='#'>
+      <img class= "tour-card-img" src='/images/nepaltour.png'>
       <p>{{tour.0.description}}</p>
       <form method="GET" action="/tours/{{tour.0._id}}">
         <button>see details</button>
       </form>
-    
     </div>
-      <div class ='tour-card'>
+
+    <div class ='tour-card'>
       <h2>{{tour.1.name}}</h2>
-      <img src='#'>
+      <img class= "tour-card-img" src='/images/europetour1.jpg'>
       <p>{{tour.1.description}}</p>
       <form method="GET" action="/tours/{{tour.1._id}}">
         <button>see details</button>
       </form>
     </div>
   </div>
+
 </div>
 
 </section>

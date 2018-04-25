@@ -15,7 +15,7 @@
     </div>
     {{#if user.email}}
     <div>
-    <a href="/">see all tours</a>
+    <a href="/#hp-tour-content">see all tours</a>
     <form method="GET" action="/profile/{{user._id}}">
       <button id="nav-btn">profile</button>
     </form>
@@ -25,7 +25,7 @@
     </div>
     {{else}}
     <div>
-    <a href="/">see all tours</a>
+    <a href="/#hp-tour-content">see all tours</a>
     <a href="/auth/signup">sign up</a>
     <a href="/auth/login">login</a>
     </div>
@@ -36,15 +36,28 @@
 
   <footer id = 'footer'>
     <p>Made by Lennie Zhu and Dauv Bafna (Ironhack BCN 2018)</p>
+
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSqhCPvGdIep-riFlAlKyWojxgh3T-BwM"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="/javascripts/main.js"></script>
   {{#if javascript}}
-  <script>
-    {{{javascript}}}
-  </script>
+    <script>
+      {{{javascript}}}
+    </script>
   {{/if}}
+  {{!-- <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/593fcfd9b3d02e11ecc69ad0/default';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script> --}}
 </body>
 
 </html>
