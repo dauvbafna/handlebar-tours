@@ -39,6 +39,8 @@ router.get('/tours/:tourId', (req, res, next) => {
     .catch(next);
 });
 
+// get profile page
+
 router.get('/profile/:userId', (req, res, next) => {
   User.findOne({ _id: req.params.userId })
     .then((result) => {

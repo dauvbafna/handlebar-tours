@@ -4,34 +4,42 @@ function tourDetails (tourId) {
   // -- build the map
 
   const container = document.getElementById('map');
-  const ironhackBCN = {
+  const defaultPos = {
     lat: 27.7090319,
     lng: 85.2911132
   };
   const options = {
     zoom: 7,
-    center: ironhackBCN
+    center: defaultPos
   };
+
   const map = new google.maps.Map(container, options);
 
   // To add the marker to the map, call setMap();
 
   axios.get(`/api/${tourId}`)
     .then(response => {
-      var stopPosition;
-      var markers = [];
-      var routeLines = [];
-      for (var i = 0; i < response.data.tour.routes.length; i++) {
+      let stopPosition;
+      let markers = [];
+      let routeLines = [];
+      const mid = Math.floor((response.data.tour.routes.length) / 2);
+      const center = {
+        lat: response.data.tour.routes[mid].coordinates[0],
+        lng: response.data.tour.routes[mid].coordinates[1]
+      };
+      map.panTo(center);
+
+      for (let i = 0; i < response.data.tour.routes.length; i++) {
         stopPosition = response.data.tour.routes[i].coordinates;
         markers.push(new google.maps.Marker({
           position: new google.maps.LatLng(stopPosition[0], stopPosition[1]),
           map: map,
-          animation: google.maps.Animation.DROP
+          animation: google.maps.Animation.wo
         })
         );
       }
 
-      for (var j = 0; j < markers.length - 1; j++) {
+      for (let j = 0; j < markers.length - 1; j++) {
         routeLines.push(new google.maps.Polyline({
           path: [
             new google.maps.LatLng(markers[j].position.lat(), markers[j].position.lng()),
@@ -49,6 +57,8 @@ function tourDetails (tourId) {
       console.log(error);
     });
 }
+
+// places api
 
 // Animations
 
