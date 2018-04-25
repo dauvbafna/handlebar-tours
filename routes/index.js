@@ -46,6 +46,7 @@ router.get('/profile/:userId', (req, res, next) => {
     .then((result) => {
     // find Tours where the user is a rider
     // Tour.find
+      console.log(result);
       const data = {
         user: result
       };
@@ -55,15 +56,17 @@ router.get('/profile/:userId', (req, res, next) => {
 });
 
 // FINISH THIS
-router.post('/profile/:userId', (req, res, next) => {
-  User.findOne({ _id: req.params.userId })
+router.post('/:tour_id/booking', (req, res, next) => {
+  Tour.findOne({ _id: req.params.tour_id })
     .then((result) => {
-      // push userId to result.riders
-      const data = {
-        user: req.session.user
-      };
-        // save user to tourid
-      res.render('profile', data);
+      console.log(result);
+
+      // Tour.update({ _id: req.params.tour_id },
+      //   { $push: { riders: req.session.user._id } }
+      // );
+
+      res.redirect(`/`); // @todo either direct to Thank you for booking page with link to /profile or figure out how to mkae line below work
+      // res.redirect(`profile/${req.session.user._id}`);
     })
     .catch(next);
 });

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Tour = require('../models/tour');
 
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://handlebars-tours:handlebars-tours@ds155299.mlab.com:55299/moto-tours', {
+mongoose.connect('mongodb://localhost/moto-tours', {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE
 })
