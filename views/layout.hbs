@@ -13,7 +13,7 @@
     <div>
       <a href="/"><img src="/images/logo.png" alt='handlebars-tours logo'></a>
     </div>
-    {{#if user.email}}
+    {{#if user}}
     <div>
     <a href="/#hp-tour-content">see all tours</a>
     <form method="GET" action="/profile/{{user._id}}">

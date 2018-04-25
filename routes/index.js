@@ -39,12 +39,26 @@ router.get('/tours/:tourId', (req, res, next) => {
     .catch(next);
 });
 
+// FINISH THIS
+
 router.get('/profile/:userId', (req, res, next) => {
   User.findOne({ _id: req.params.userId })
     .then((result) => {
       const data = {
         user: result
       };
+      res.render('profile', data);
+    })
+    .catch(next);
+});
+
+router.post('/profile/:userId', (req, res, next) => {
+  Tour.findOne({ _id: req.params.tourId })
+    .then((result) => {
+      const data = {
+        user: req.session.user
+      };
+        // save user to tourid
       res.render('profile', data);
     })
     .catch(next);
