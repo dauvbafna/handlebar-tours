@@ -1,5 +1,8 @@
 'use strict';
 
+// calling env file
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -18,8 +21,9 @@ const api = require('./routes/api');
 const app = express();
 
 // Mongoose configuration
+
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/moto-tours', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE
 });
@@ -52,6 +56,7 @@ app.use(session({
 
 app.use((req, res, next) => {
   app.locals.user = req.session.user;
+  app.locals.googleKey = process.env.GOOGLE_API_KEY;
   next();
 });
 
