@@ -13,7 +13,7 @@
     <div>
       <a href="/"><img src="/images/logo.png" alt='handlebars-tours logo'></a>
     </div>
-    {{#if user.email}}
+    {{#if user}}
     <div>
     <a href="/#hp-tour-content">see all tours</a>
     <form method="GET" action="/profile/{{user._id}}">
@@ -39,7 +39,7 @@
 
   </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSqhCPvGdIep-riFlAlKyWojxgh3T-BwM&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key={{googleKey}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="/javascripts/main.js"></script>
   {{#if javascript}}

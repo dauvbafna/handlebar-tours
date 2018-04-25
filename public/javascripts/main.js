@@ -45,7 +45,7 @@ function tourDetails (tourId) {
             new google.maps.LatLng(markers[j].position.lat(), markers[j].position.lng()),
             new google.maps.LatLng(markers[j + 1].position.lat(), markers[j + 1].position.lng())
           ],
-          strokeColor: '#FF0000',
+          strokeColor: '#FFFFFF',
           strokeOpacity: 1,
           strokeWeight: 7,
           map: map

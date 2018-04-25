@@ -44,9 +44,25 @@ router.get('/tours/:tourId', (req, res, next) => {
 router.get('/profile/:userId', (req, res, next) => {
   User.findOne({ _id: req.params.userId })
     .then((result) => {
+    // find Tours where the user is a rider
+    // Tour.find
       const data = {
         user: result
       };
+      res.render('profile', data);
+    })
+    .catch(next);
+});
+
+// FINISH THIS
+router.post('/profile/:userId', (req, res, next) => {
+  User.findOne({ _id: req.params.userId })
+    .then((result) => {
+      // push userId to result.riders
+      const data = {
+        user: req.session.user
+      };
+        // save user to tourid
       res.render('profile', data);
     })
     .catch(next);
