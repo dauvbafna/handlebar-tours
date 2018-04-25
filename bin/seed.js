@@ -16,6 +16,10 @@ mongoose.connect('mongodb://localhost/moto-tours', {
     return createNewTour('7 days wonderful motorbike tour in nepal', 'some cool description here', fullroute);
   })
   .then(() => {
+    const fullroute = [{coordinates: [45.6942366, 5.8684471]}, {coordinates: [46.2480398, 6.7486877]}, {coordinates: [46.7402635, 7.6031855]}, {coordinates: [46.7427513, 8.7730751]}, {coordinates: [46.5293741, 10.4444522]}, {coordinates: [46.0240991, 9.213247]}, {coordinates: [45.7438747, 7.298168]}, {coordinates: [45.9322165, 6.7888765]}, {coordinates: [45.4105389, 6.3339831]}, {coordinates: [45.6942366, 5.8684471]}];
+    return createNewTour('13 Days Grand Alps Motorcycle Tour', 'some cool description here', fullroute);
+  })
+  .then(() => {
     mongoose.disconnect();
   })
   .catch((err) => {

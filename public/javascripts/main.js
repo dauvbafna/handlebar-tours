@@ -1,8 +1,6 @@
 'use strict';
 
 function tourDetails (tourId) {
-  // -- utility functions
-
   // -- build the map
 
   const container = document.getElementById('map');
@@ -23,7 +21,7 @@ function tourDetails (tourId) {
       var stopPosition;
       var markers = [];
       var routeLines = [];
-      for (var i = 0; i < 7; i++) {
+      for (var i = 0; i < response.data.tour.routes.length; i++) {
         stopPosition = response.data.tour.routes[i].coordinates;
         markers.push(new google.maps.Marker({
           position: new google.maps.LatLng(stopPosition[0], stopPosition[1]),
