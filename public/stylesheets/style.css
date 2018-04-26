@@ -178,7 +178,7 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 60vw;
+  padding-left: 50%;
 }
 
 /* media query */
