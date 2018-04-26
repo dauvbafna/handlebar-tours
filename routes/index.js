@@ -57,16 +57,10 @@ router.get('/profile/:userId', (req, res, next) => {
 
 // POST booking to profile
 router.post('/:tour_id/booking', (req, res, next) => {
-  Tour.findOne({ _id: req.params.tour_id })
+  Tour.findByIdAndUpdate(req.params.tour_id, {$push: {riders: req.session.user._id}})
     .then((result) => {
       console.log(result);
-
-      // Tour.update({ _id: req.params.tour_id },
-      //   { $push: { riders: req.session.user._id } }
-      // );
-
-      res.redirect(`/`); // @todo either direct to Thank you for booking page with link to /profile or figure out how to mkae line below work
-      // res.redirect(`profile/${req.session.user._id}`);
+      res.redirect(`/profile/${req.session.user._id}`);
     })
     .catch(next);
 });
