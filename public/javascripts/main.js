@@ -66,7 +66,7 @@ function tourDetails (tourId) { // eslint-ignore no-unused-vars
               new google.maps.LatLng(markers[j - 1].position.lat(), markers[j - 1].position.lng()),
               new google.maps.LatLng(markers[j].position.lat(), markers[j].position.lng())
             ],
-            strokeColor: '#FFFFFF',
+            strokeColor: 'red',
             strokeOpacity: 1,
             strokeWeight: 7,
             map: map
