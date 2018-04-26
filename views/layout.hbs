@@ -10,25 +10,23 @@
 
 <body class= 'container'>
   <nav id = 'nav'>
-    <div>
-      <a href="/"><img src="/images/logo.png" alt='handlebars-tours logo'></a>
-    </div>
+    <a href="/"><img src="/images/hb-tours-logo.png" alt='handlebars tours logo'></a>
     {{#if user}}
-    <div>
-    <a href="/#hp-tour-content">see all tours</a>
-    <form method="GET" action="/profile/{{user._id}}">
-      <button id="nav-btn">profile</button>
-    </form>
-    <form method="POST" action="/auth/logout">
-      <button id = "nav-btn">logout</button>
-    </form>
-    </div>
+      <div>
+      <a href="/#hp-tour-content">see all tours</a>
+      <form method="GET" action="/profile/{{user._id}}">
+        <button id="nav-btn">profile</button>
+      </form>
+      <form method="POST" action="/auth/logout">
+        <button id = "nav-btn">logout</button>
+      </form>
+      </div>
     {{else}}
-    <div>
-    <a href="/#hp-tour-content">see all tours</a>
-    <a href="/auth/signup">sign up</a>
-    <a href="/auth/login">login</a>
-    </div>
+      <div>
+      <a href="/#hp-tour-content">see all tours</a>
+      <a href="/auth/signup">sign up</a>
+      <a href="/auth/login">login</a>
+      </div>
     {{/if}}
   </nav>
 
@@ -47,7 +45,7 @@
       {{{javascript}}}
     </script>
   {{/if}}
-  {{!-- <script type="text/javascript">
+  <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function () {
       var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -57,7 +55,7 @@
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
-  </script> --}}
+  </script>
 </body>
 
 </html>

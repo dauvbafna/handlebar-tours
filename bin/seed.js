@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Tour = require('../models/tour');
 
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://handlebars-tours:handlebars-tours@ds155299.mlab.com:55299/moto-tours', {
+mongoose.connect('mongodb://localhost/moto-tours', {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE
 })
@@ -59,11 +59,11 @@ mongoose.connect('mongodb://handlebars-tours:handlebars-tours@ds155299.mlab.com:
     ];
 
     return createNewTour(
-      'Nepal Tour: 7 Days',
-      `Come and enjoy the most thrilling motorbike tour through the scenic and lovely countryside of Nepal. 
+      'NEPAL TOUR: 7 DAYS',
+      `Come and enjoy a thrilling motorbike tour through the scenic and lovely countryside of Nepal. 
       Ride the popular Annapurna trekking trail and discover the hundred of years old monasteries, caves, 
       local tribes, and scenic beauties, including the world’s deepest gorge of the Kali Gandaki River. 
-      Experience the adventure of Nepal and make memories for a lifetime!`,
+      Experience Nepal and make memories for a lifetime!`,
       nepalRoute,
       nepalDays
     );
@@ -171,7 +171,7 @@ mongoose.connect('mongodb://handlebars-tours:handlebars-tours@ds155299.mlab.com:
     ];
 
     return createNewTour(
-      'Grand Alps Tour: 13 Days',
+      'GRAND ALPS TOUR: 13 DAYS',
       `Take the ride of a lifetime from the Mont-Blanc Massif to the Stelvio Pass, all the way through The Alps 
       by motorcycle. Realize every biker’s dream by riding the gorgeous alpine roads through France, Switzerland, 
       and Italy. Cross verdant valleys, high-mountain pastures, and then ride through the snow walls of the highest 

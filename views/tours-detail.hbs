@@ -1,6 +1,21 @@
 <section id="tour-details-container">
 
-<h1>{{tour.name}}</h1>
+<div id = "tour-title-book-btn"> 
+  <h1>{{tour.name}}</h1>
+  {{#if user}}
+  <form method="POST" action="/{{tour._id}}/booking">
+    <button>book now</button>
+  </form>
+  {{else}}
+  <a href="/auth/login"><button>book now</button></a>
+  {{/if}}
+</div>
+
+<div>
+  {{tour.description}}
+</div>
+
+<p><i>(pro-tip: click the markers for a 360 view of each stop)</i></p>
 
 <div id="map">
 </div>
@@ -8,16 +23,6 @@
 <div id="streetview">
 </div>
 
-<div>
-  {{tour.description}}
-</div>
 
-{{#if user}}
-<form method="POST" action="/{{tour._id}}/booking">
-  <button>book now</button>
-</form>
-{{else}}
-<a href="/auth/login"><button>book now</button></a>
-{{/if}}
 
 </section>
