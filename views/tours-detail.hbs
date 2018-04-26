@@ -14,11 +14,12 @@
   {{tour.description}}
 </div>
 
-{{!-- FINISH THIS --}}
-{{!-- {{#if user}} --}}
+{{#if user}}
 <form method="POST" action="/{{tour._id}}/booking">
   <button>book now</button>
 </form>
-{{!-- {{#if user}} --}}
+{{else}}
+<a href="/auth/login"><button>book now</button></a>
+{{/if}}
 
 </section>

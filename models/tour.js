@@ -5,12 +5,10 @@ const ObjectId = Schema.Types.ObjectId;
 
 const tourSchema = new Schema({
   name: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
   routes: [{
     type: {
@@ -22,6 +20,10 @@ const tourSchema = new Schema({
   riders: [{
     type: ObjectId,
     ref: 'User'
+  }],
+  days: [{
+    title: [String],
+    daySummary: [String]
   }]
 });
 
