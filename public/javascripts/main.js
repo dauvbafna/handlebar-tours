@@ -1,6 +1,6 @@
 'use strict';
 
-function tourDetails (tourId) {
+function tourDetails (tourId) { // eslint-ignore no-unused-vars
   // -- build the map
 
   const container = document.getElementById('map');
@@ -31,27 +31,48 @@ function tourDetails (tourId) {
 
       for (let i = 0; i < response.data.tour.routes.length; i++) {
         stopPosition = response.data.tour.routes[i].coordinates;
-        markers.push(new google.maps.Marker({
+        let marker = new google.maps.Marker({
           position: new google.maps.LatLng(stopPosition[0], stopPosition[1]),
-          map: map,
           animation: google.maps.Animation.wo
-        })
-        );
+        });
+        markers.push(marker);
+        marker.addListener('click', () => {
+          var panoramaOptions = {
+            addressControl: false,
+            position: new google.maps.LatLng(markers[i].position.lat(), markers[i].position.lng()),
+            pov: {
+              heading: 50, /* North */
+              pitch: 0, /* Look down at angle 40deg */
+              zoom: 0
+            },
+            visible: true
+          };
+          var streetview = new google.maps.StreetViewPanorama(document.getElementById('streetview'),
+            panoramaOptions);
+
+          console.log('clicked on marker', i);
+          console.log(markers[i].position.lat());
+        });
       }
 
-      for (let j = 0; j < markers.length - 1; j++) {
-        routeLines.push(new google.maps.Polyline({
-          path: [
-            new google.maps.LatLng(markers[j].position.lat(), markers[j].position.lng()),
-            new google.maps.LatLng(markers[j + 1].position.lat(), markers[j + 1].position.lng())
-          ],
-          strokeColor: '#FFFFFF',
-          strokeOpacity: 1,
-          strokeWeight: 7,
-          map: map
-        }));
+      for (let j = 0; j < markers.length; j++) {
+        window.setTimeout(() => {
+          markers[j].setMap(map);
+          if (!j) {
+            return;
+          }
+          routeLines.push(new google.maps.Polyline({
+            path: [
+              new google.maps.LatLng(markers[j - 1].position.lat(), markers[j - 1].position.lng()),
+              new google.maps.LatLng(markers[j].position.lat(), markers[j].position.lng())
+            ],
+            strokeColor: '#FFFFFF',
+            strokeOpacity: 1,
+            strokeWeight: 7,
+            map: map
+          }));
+        }, (j + 1) * 500);
       }
-      console.log(markers);
     })
     .catch(error => {
       console.log(error);

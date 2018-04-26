@@ -238,6 +238,10 @@ input {
   height: 60vh;
 }
 
+#streetview{
+  height: 30vh;
+}
+
 button {
   padding: 10px 25px;
   background-color: #3F84E3;
