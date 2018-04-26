@@ -2,33 +2,43 @@
   <div>
     <img src = "/images/profile.png">
   </div>
+
   <div id = "profile-wrapper">
     <div class = "profile-section">
       <h1>Your profile</h1>
       <p>First name: {{user.firstname}}</p>
       <p>Email: {{user.email}}</p>
     </div>
-    
-    {{#if}}
-      {{#contains tour.0.riders user._id }}
-        <div class = "profile-section">
-          <h3>your upcoming trip</h3>
-          
-          <div>
-            <p>{{tour.0.name}}</p>
-          </div>
 
-          <div id = "accordion">
-            <a>{{tour.0.days[i].title}}</a>
-            <div>{{tour.description}}</div>
+    {{#if tour}}
+      <div class = "profile-section">
+        <h3>your upcoming tours</h3>
+        
+        <div>
+          {{#each tour}}
+            <div id = "itinerary-tour-name">
+              <button class="accordion">{{this.name}}</button>
+              <div class="panel">
+                {{!-- <p> --}}
+                  {{#each this.days}}
+                    <button class="accordion">{{this.title}}</button>
+                    <div class="panel">
+                      <p>{{this.daySummary}}</p>
+                    </div>
+                  {{/each}}
+                {{!-- </p> --}}
+              </div>
+            </div>
+          {{/each}}
+            
           </div>
-
         </div>
-      {{/contains}}
+
+      </div>
     {{else}}
-      {{#if Europe}}
-         same as nepal div 
-      {{/if}}
+      <p>You have no upcoming tours</p>
     {{/if}}
+    
   </div>
+
 </section>
