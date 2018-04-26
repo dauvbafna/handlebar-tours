@@ -65,7 +65,6 @@ mongoose.connect('mongodb://localhost/moto-tours', {
       local tribes, and scenic beauties, including the world’s deepest gorge of the Kali Gandaki River. 
       Experience the adventure of Nepal and make memories for a lifetime!`,
       nepalRoute,
-      [],
       nepalDays
     );
   })
@@ -178,7 +177,6 @@ mongoose.connect('mongodb://localhost/moto-tours', {
       and Italy. Cross verdant valleys, high-mountain pastures, and then ride through the snow walls of the highest 
       mountain passes.`,
       europeRoute,
-      [],
       europeDays
     );
   })
@@ -190,18 +188,18 @@ mongoose.connect('mongodb://localhost/moto-tours', {
     mongoose.disconnect();
   });
 
-function createNewTour (tripName, tripDescription, tripRoutes, tripRiders, tripDays) {
+function createNewTour (tripName, tripDescription, tripRoutes, tripDays) {
   const name = tripName;
   const description = tripDescription;
   const routes = tripRoutes;
-  const riders = tripRiders;
+  // const riders = tripRiders;
   const days = tripDays;
 
   const tour = new Tour({
     name,
     description,
     routes,
-    riders,
+    // riders,
     days
   });
   return tour.save();

@@ -75,8 +75,8 @@ input {
   height: 100vh;
   background-image: url('../images/2.jpg');
   background-size: cover;
-  background-attachment: fixed;
   background-position: right;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
@@ -92,8 +92,10 @@ input {
   padding: 10vh 0 0 0;
 }
 
-#profile-content {
+#profile-container {
   padding: 10vh;
+  display: flex;
+  flex-direction: row;
 }
 
 
@@ -256,8 +258,8 @@ button {
   margin-top: 20px;
 }
 
-#profile-content img {
-  width: 30%;
+#profile-container img {
+  width: 60%;
 }
 
 .error-img {

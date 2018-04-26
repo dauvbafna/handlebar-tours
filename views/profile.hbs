@@ -1,9 +1,34 @@
-<section id = "profile-content">
-  <h1>Your Profile</h1>
-  <img src = "/images/profile.png">
-  <p>First name: {{user.firstname}}</p>
-  <p>Email: {{user.email}}</p>
+<section id = "profile-container">
   <div>
-    {{!-- {{}} --}}
+    <img src = "/images/profile.png">
+  </div>
+  <div id = "profile-wrapper">
+    <div class = "profile-section">
+      <h1>Your profile</h1>
+      <p>First name: {{user.firstname}}</p>
+      <p>Email: {{user.email}}</p>
+    </div>
+    
+    {{#if}}
+      {{#contains tour.0.riders user._id }}
+        <div class = "profile-section">
+          <h3>your upcoming trip</h3>
+          
+          <div>
+            <p>{{tour.0.name}}</p>
+          </div>
+
+          <div id = "accordion">
+            <a>{{tour.0.days[i].title}}</a>
+            <div>{{tour.description}}</div>
+          </div>
+
+        </div>
+      {{/contains}}
+    {{else}}
+      {{#if Europe}}
+         same as nepal div 
+      {{/if}}
+    {{/if}}
   </div>
 </section>

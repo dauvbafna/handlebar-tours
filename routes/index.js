@@ -55,7 +55,7 @@ router.get('/profile/:userId', (req, res, next) => {
     .catch(next);
 });
 
-// FINISH THIS
+// POST booking to profile
 router.post('/:tour_id/booking', (req, res, next) => {
   Tour.findOne({ _id: req.params.tour_id })
     .then((result) => {
