@@ -125,7 +125,7 @@ function tourDetails (tourId) { // eslint-disable-line no-unused-vars
           map: map
         });
 
-        marker = new google.maps.Marker({map: map, icon: '/images/black-motorcycle-512.jpg'});
+        marker = new google.maps.Marker({map: map, icon: '/images/bikeicon.png'});
         let anime = 26;
         let idx = 0;
         for (i = 0; i < pathCoords.length; i++) {
