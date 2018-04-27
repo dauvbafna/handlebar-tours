@@ -398,6 +398,7 @@ button {
 
 #mobile-nav {
   display: none;
+  padding: 10px;
 }
 
 .menu-btn div {
