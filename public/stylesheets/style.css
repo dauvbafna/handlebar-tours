@@ -292,6 +292,13 @@ input {
 }
   
 /* components again  */
+#not-found-bg {
+  background-image: url("../images/error.jpg");
+  color: white;
+  text-align: center;
+  background-position: cover;
+}
+
 #footer {
     background-color: #efefef;
     display: flex;
@@ -337,7 +344,7 @@ button {
 }
 
 .error-img {
-  width: 30%;
+  width: 10%;
   margin: 10vh 10vh;
 }
 
