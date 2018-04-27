@@ -13,13 +13,13 @@ mongoose.connect('mongodb://localhost/moto-tours', {
   })
   .then(() => {
     const nepalRoute = [
-      {coordinates: [27.7090319, 85.2911132]},
+      {coordinates: [27.6733181, 85.3250944]},
       {coordinates: [28.2298558, 83.8865779]},
       {coordinates: [28.6378237, 83.5971574]},
       {coordinates: [28.8009381, 83.7770043]},
       {coordinates: [28.4918295, 83.579959]},
       {coordinates: [28.208408, 84.3177056]},
-      {coordinates: [27.7090319, 85.2911132]}];
+      {coordinates: [27.6733181, 85.3250944]}];
 
     const nepalDays = [
       {
@@ -59,13 +59,12 @@ mongoose.connect('mongodb://localhost/moto-tours', {
     ];
 
     return createNewTour(
-      'Nepal Tour: 7 Days',
-      `Come and enjoy the most thrilling motorbike tour through the scenic and lovely countryside of Nepal. 
+      'NEPAL TOUR: 7 DAYS',
+      `Come and enjoy a thrilling motorbike tour through the scenic and lovely countryside of Nepal. 
       Ride the popular Annapurna trekking trail and discover the hundred of years old monasteries, caves, 
       local tribes, and scenic beauties, including the world’s deepest gorge of the Kali Gandaki River. 
-      Experience the adventure of Nepal and make memories for a lifetime!`,
+      Experience Nepal and make memories for a lifetime!`,
       nepalRoute,
-      [],
       nepalDays
     );
   })
@@ -172,13 +171,12 @@ mongoose.connect('mongodb://localhost/moto-tours', {
     ];
 
     return createNewTour(
-      'Grand Alps Tour: 13 Days',
+      'GRAND ALPS TOUR: 13 DAYS',
       `Take the ride of a lifetime from the Mont-Blanc Massif to the Stelvio Pass, all the way through The Alps 
       by motorcycle. Realize every biker’s dream by riding the gorgeous alpine roads through France, Switzerland, 
       and Italy. Cross verdant valleys, high-mountain pastures, and then ride through the snow walls of the highest 
       mountain passes.`,
       europeRoute,
-      [],
       europeDays
     );
   })
@@ -190,18 +188,18 @@ mongoose.connect('mongodb://localhost/moto-tours', {
     mongoose.disconnect();
   });
 
-function createNewTour (tripName, tripDescription, tripRoutes, tripRiders, tripDays) {
+function createNewTour (tripName, tripDescription, tripRoutes, tripDays) {
   const name = tripName;
   const description = tripDescription;
   const routes = tripRoutes;
-  const riders = tripRiders;
+  // const riders = tripRiders;
   const days = tripDays;
 
   const tour = new Tour({
     name,
     description,
     routes,
-    riders,
+    // riders,
     days
   });
   return tour.save();

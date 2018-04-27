@@ -42,20 +42,40 @@ router.get('/tours/:tourId', (req, res, next) => {
 // get profile page
 
 router.get('/profile/:userId', (req, res, next) => {
-  User.findOne({ _id: req.params.userId })
-    .then((result) => {
-    // find Tours where the user is a rider
-    // Tour.find
-      console.log(result);
+  const promise1 = User.findOne({ _id: req.params.userId });
+  const promise2 = Tour.find({ riders: { $in: [req.params.userId] } });
+  Promise.all([promise1, promise2])
+    .then(values => {
+      const userResult = values[0];
+
+      const tourResult = values[1];
+
+      console.log(values);
       const data = {
-        user: result
+        user: userResult,
+        tour: tourResult,
+        javascript:
+          `var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight){
+                  panel.style.maxHeight = null;
+                } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+              });
+            }`
       };
       res.render('profile', data);
     })
     .catch(next);
 });
 
-// FINISH THIS
+// POST booking to profile
 router.post('/:tour_id/booking', (req, res, next) => {
   Tour.findByIdAndUpdate(req.params.tour_id, {$push: {riders: req.session.user._id}})
     .then((result) => {

@@ -1,9 +1,43 @@
-<section id = "profile-content">
-  <h1>Your Profile</h1>
-  <img src = "/images/profile.png">
-  <p>First name: {{user.firstname}}</p>
-  <p>Email: {{user.email}}</p>
-  <div>
-    {{!-- {{}} --}}
+<section id = "profile-container">
+  <div class = "profile-img">
+    <img src = "/images/profile.png">
   </div>
+
+  <div id = "profile-wrapper">
+    <div class = "profile-section">
+      <h1>your profile</h1>
+      <h3><strong>first name: </strong>{{user.firstname}}</h3>
+      <h3><strong>email: </strong>{{user.email}}</h3>
+    </div>
+    <hr>
+
+    {{#if tour}}
+      <div class = "profile-section">
+        <h1>your upcoming tours</h1>
+        <div>
+          {{#each tour}}
+            <div>
+              <button class="accordion accordion-upcoming-tour-name">{{this.name}}</button>
+              <div class="panel">
+                  {{#each this.days}}
+                    <button class="accordion accordion-nested">{{this.title}}</button>
+                    <div class="panel">
+                      <p class = "accordion-daySummary">{{this.daySummary}}</p>
+                    </div>
+                  {{/each}}
+              </div>
+            </div>
+          {{/each}}
+            
+          </div>
+        </div>
+
+      </div>
+    {{else}}
+      <h1>you have no upcoming tours</h1>
+      <a href = "/#hp-tour-content"><button>book one</button></a>
+    {{/if}}
+    
+  </div>
+
 </section>
